@@ -3,7 +3,7 @@ using namespace std;
 
 //Code is used to pick a math operation then, do the math based on what the person running inputs. 
 
-void printMenu(int& choice) {
+void printConsole(int& choice) {
     //Prompt the different operations for math time
     cout << "Sup I'm your caluclator... choose an operation now:" << endl;
     cout << "1. Addition" << endl;
@@ -51,8 +51,8 @@ int main() {
     int choice;
     float A, B;
 
-	//show the menu and get the user's choice
-    printMenu(choice);
+	//show the console and get the user's choice
+    printConsole(choice);
     getChoices(A, B);
 
 	//pick the funciton that best fits the user's choice
