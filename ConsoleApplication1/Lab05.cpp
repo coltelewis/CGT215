@@ -46,9 +46,9 @@ int main() {
     }
 
 
-    // Call the encode function and show the user the encoded result
+    //call the encode function and show result.
     string resultedText = encode(text);
     cout << "Here's your encoded text: " << resultedText << endl;
 
-    return 0;  // end the program
+    return 0;  //end the program
 }
