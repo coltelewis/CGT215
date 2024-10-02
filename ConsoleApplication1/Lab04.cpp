@@ -11,7 +11,7 @@ void printMenu(int& choice) {
     cout << "3. Geometric Series" << endl;
     cout << "4. Exit" << endl;
     cout << "\nYour Selection: ";
-    cin >> choice;  
+    cin >> choice;
 }
 
 void factorial() {
@@ -50,7 +50,7 @@ void arithmetic() {
     cout << "How many elements in the series: ";
     cin >> numElements;
 
- 
+
     while (numElements <= 0) {   //validate number of e ements
         cout << "Number of elements neds to be positive lmao. Try again: ";
         cin >> numElements;
@@ -83,7 +83,7 @@ void geometric() {
     cout << "Number of elements: ";
     cin >> numElements;
 
-   
+
     while (numElements <= 0) { //vadliate elements
         cout << "Number of elements must be positive LOL try harder. Try again: ";
         cin >> numElements;
@@ -109,7 +109,7 @@ void runCalculator() {
     do {
         printMenu(choice); //show the menu and get the user's choice
 
-      
+
         if (choice > 3 || choice < 1) {  //invalid choice or user exit
             cout << "smh, invalid choice. F*** this..." << endl;
             return;

@@ -1,52 +1,54 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <string>  // for handling strings
 
 using namespace std;
 
-// Function to encode the input string using the cipher
+// encode function to translate the input string using the cipher
+
 string encode(const string& text) {
-    // The cipher vector
-    vector<char> cipher = { 'V','F','X','B','L','I','T','Z','J','R','P','H','D','K','N','O','W','S','G','U','Y','Q','M','A','C','E' };
-    string encodedText = "";
+
+    vector<char> cipher = { 'V','F','X','B','L','I','T','Z','J','R','P','H','D','K','N','O','W','S','G','U','Y','Q','M','A','C','E' };   //cipher table
+
+    string resultedText = ""; //stored result
+
 
     for (char c : text) {
-        // Check if the character is uppercase (A-Z)
-        if (c >= 'A' && c <= 'Z') {
-            encodedText += cipher[c - 65];
+
+        if (c >= 'A' && c <= 'Z') {   // if it's a letter translate
+            resultedText += cipher[c - 65];  //map
         }
-        // Check if the character is lowercase (a-z)
+        // if't it's lowercase do this one instead.
         else if (c >= 'a' && c <= 'z') {
-            char upperCaseLetter = c - 32; // Convert to uppercase
-            char upperCaseCode = cipher[upperCaseLetter - 65]; // Get ciphered uppercase
-            encodedText += upperCaseCode + 32; // Convert back to lowercase
+            char upperCaseLetter = c - 32;  //convert to uppercase
+            char upperCaseCode = cipher[upperCaseLetter - 65];
+            resultedText += upperCaseCode + 32;  // convert it back to lowercase
         }
-        // If it's not a letter, leave it unchanged
+        //for non-letters
         else {
-            encodedText += c;
+            resultedText += c;
         }
     }
-
-    return encodedText;
+    return resultedText; // return final encoded string
 }
 
+
 int main() {
-    // Input string
-    string text;
+    string text;  //to hold user input
 
-    // Get the input string from the user
-    cout << "Enter a string to encode (max 128 characters): ";
-    getline(cin, text);
+    cout << "type a string to encode (max 128 characters plz): ";
+    getline(cin, text);  //get the full line + spaces
 
-    // Check if the input exceeds 128 characters
-    if (text.length() > 128) {
-        cout << "Error: The input exceeds the maximum limit of 128 characters." << endl;
-        return 1;
+
+    if (text.length() > 128) {  // for input length checking
+        cout << "Brueh lower the amount of characters you are using. max is 128 characters." << endl;
+        return 1;  // error out if it's too long
     }
 
-    // Encode the string and output the result
-    string encodedText = encode(text);
-    cout << "Encoded text: " << encodedText << endl;
 
-    return 0;
+    // Call the encode function and show the user the encoded result
+    string resultedText = encode(text);
+    cout << "Here's your encoded text: " << resultedText << endl;
+
+    return 0;  // end the program
 }
